@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts
 
 USER root
 
+# Install git inside Jenkins container
 RUN apt-get update && apt-get install -y git
 
 USER jenkins
