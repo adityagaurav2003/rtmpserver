@@ -84,3 +84,4 @@ git clone https://github.com/adityagaurav2003/livestream.git
 cd livestream
 npm install
 node index.js
+docker compose up
