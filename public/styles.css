@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #ffffff;
+  text-align: center;
+  height: 100vh;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+}
+
+video {
+  border: 4px solid #00d9ff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00d9ff, 0 0 30px #00d9ff;
+  width: 80%;
+  max-width: 720px;
+  height: auto;
+}
+
+button,
+input {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  width: 300px;
+}
+
+button {
+  background-color: #00d9ff;
+  color: #0f172a;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 217, 255, 0.3);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #00a1cc;
+  box-shadow: 0 0 15px #00a1cc;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#connection-status {
+  color: red;
+}
+
+#abr-panel {
+  margin: 16px auto 0;
+  max-width: 420px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 217, 255, 0.35);
+  background: rgba(15, 23, 42, 0.85);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+#abr-panel[hidden] {
+  display: none;
+}
+
+#abr-panel strong {
+  color: #00d9ff;
+}
+
+.abr-row {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#abr-health {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+}
+
+#abr-health.abr-healthy {
+  color: #4ade80;
+}
+
+#abr-health.abr-degraded {
+  color: #fbbf24;
+}

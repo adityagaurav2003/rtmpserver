@@ -4,59 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Streamyard Clone</title>
-    <style>
-      /* Keep your existing styles */
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(to bottom, #0f172a, #1e293b);
-        color: #ffffff;
-        text-align: center;
-        height: 100vh;
-      }
-      h1 { margin-top: 20px; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; color: #00d9ff; text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff; }
-      video { border: 4px solid #00d9ff; border-radius: 15px; box-shadow: 0 0 15px #00d9ff, 0 0 30px #00d9ff; width: 80%; max-width: 720px; height: auto; }
-      button, input { margin-top: 20px; padding: 12px 24px; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; }
-      input { border: none; width: 300px; }
-      button { background-color: #00d9ff; color: #0f172a; border: none; box-shadow: 0 4px 10px rgba(0, 217, 255, 0.3); text-transform: uppercase; transition: all 0.3s ease; }
-      button:hover { background-color: #00a1cc; box-shadow: 0 0 15px #00a1cc; transform: scale(1.05); }
-      #abr-panel {
-        margin: 16px auto 0;
-        max-width: 420px;
-        padding: 12px 18px;
-        border-radius: 12px;
-        border: 1px solid rgba(0, 217, 255, 0.35);
-        background: rgba(15, 23, 42, 0.85);
-        font-size: 0.95rem;
-        text-align: left;
-      }
-      #abr-panel[hidden] { display: none; }
-      #abr-panel strong { color: #00d9ff; }
-      #abr-health { margin: 8px 0 0; font-size: 0.85rem; }
-      #abr-health.abr-healthy { color: #4ade80; }
-      #abr-health.abr-degraded { color: #fbbf24; }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Streamyard Clone</h1>
-    <input type="text" id="secretKeyInput" placeholder="Enter YouTube Live Secret Key" />
-    <button id="start-btn">Start Streaming</button>
+
+    <section class="stream-setup">
+      <input type="text" id="secretKeyInput" placeholder="Enter YouTube Live Secret Key" />
+      <button id="start-btn">Start Streaming</button>
+    </section>
 
     <div id="abr-panel" hidden>
-      <div><strong>Output:</strong> <span id="abr-quality">720p</span></div>
-      <div><strong>Socket RTT (p75):</strong> <span id="abr-latency">—</span></div>
+      <span class="abr-row"><strong>Output:</strong> <span id="abr-quality">720p</span></span>
+      <span class="abr-row"><strong>Socket RTT (p75):</strong> <span id="abr-latency">—</span></span>
       <p id="abr-health" class="abr-healthy">Adaptive bitrate idle</p>
     </div>
 
-    <div class="video-container">
+    <section class="video-container">
       <video id="user-video" autoplay muted></video>
-    </div>
+    </section>
 
-    
+    <section class="stream-controls">
+      <button id="pause-btn">Pause Stream</button>
+      <button id="resume-btn" hidden>Resume Stream</button>
+      <button id="stop-btn" disabled>Stop Stream</button>
+      <button id="mute-btn">Mute</button>
+      <button id="hide-btn">Hide Video</button>
+    </section>
+
+    <p id="connection-status">Socket Disconnected</p>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="/js/app.js"></script>
   </body>
 </html>
